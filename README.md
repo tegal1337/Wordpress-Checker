@@ -1,4 +1,4 @@
-![image](https://github.com/tegal1337/Wordpress-Checker/assets/31664438/bac517af-d20c-4627-b5cc-5dfedcd8af9b)
+![image](https://github.com/tegal1337/Wordpress-Checker/assets/31664438/be940517-757d-485b-a2c1-7e2d8c086279)
 
 
 ### Wordpress Login Checker by XMLPRC 
