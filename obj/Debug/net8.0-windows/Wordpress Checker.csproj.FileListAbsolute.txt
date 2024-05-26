@@ -1,0 +1,19 @@
+C:\Users\Administrator\Documents\Projects\Wordpress Checker\obj\Debug\net8.0-windows\Wordpress Checker.csproj.AssemblyReference.cache
+C:\Users\Administrator\Documents\Projects\Wordpress Checker\obj\Debug\net8.0-windows\WordPressLoginChecker.Form1.resources
+C:\Users\Administrator\Documents\Projects\Wordpress Checker\obj\Debug\net8.0-windows\Wordpress Checker.csproj.GenerateResource.cache
+C:\Users\Administrator\Documents\Projects\Wordpress Checker\obj\Debug\net8.0-windows\Wordpress Checker.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Administrator\Documents\Projects\Wordpress Checker\obj\Debug\net8.0-windows\Wordpress Checker.AssemblyInfoInputs.cache
+C:\Users\Administrator\Documents\Projects\Wordpress Checker\obj\Debug\net8.0-windows\Wordpress Checker.AssemblyInfo.cs
+C:\Users\Administrator\Documents\Projects\Wordpress Checker\obj\Debug\net8.0-windows\Wordpress Checker.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Documents\Projects\Wordpress Checker\bin\Debug\net8.0-windows\Wordpress Checker.exe
+C:\Users\Administrator\Documents\Projects\Wordpress Checker\bin\Debug\net8.0-windows\Wordpress Checker.deps.json
+C:\Users\Administrator\Documents\Projects\Wordpress Checker\bin\Debug\net8.0-windows\Wordpress Checker.runtimeconfig.json
+C:\Users\Administrator\Documents\Projects\Wordpress Checker\bin\Debug\net8.0-windows\Wordpress Checker.dll
+C:\Users\Administrator\Documents\Projects\Wordpress Checker\bin\Debug\net8.0-windows\Wordpress Checker.pdb
+C:\Users\Administrator\Documents\Projects\Wordpress Checker\bin\Debug\net8.0-windows\RestSharp.dll
+C:\Users\Administrator\Documents\Projects\Wordpress Checker\obj\Debug\net8.0-windows\Wordpres.CFDCC34C.Up2Date
+C:\Users\Administrator\Documents\Projects\Wordpress Checker\obj\Debug\net8.0-windows\Wordpress Checker.dll
+C:\Users\Administrator\Documents\Projects\Wordpress Checker\obj\Debug\net8.0-windows\refint\Wordpress Checker.dll
+C:\Users\Administrator\Documents\Projects\Wordpress Checker\obj\Debug\net8.0-windows\Wordpress Checker.pdb
+C:\Users\Administrator\Documents\Projects\Wordpress Checker\obj\Debug\net8.0-windows\Wordpress Checker.genruntimeconfig.cache
+C:\Users\Administrator\Documents\Projects\Wordpress Checker\obj\Debug\net8.0-windows\ref\Wordpress Checker.dll

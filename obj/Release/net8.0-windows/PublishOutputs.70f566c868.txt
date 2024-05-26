@@ -1,0 +1,6 @@
+C:\Users\Administrator\Desktop\Wordpress Checker.exe
+C:\Users\Administrator\Desktop\Wordpress Checker.dll
+C:\Users\Administrator\Desktop\Wordpress Checker.deps.json
+C:\Users\Administrator\Desktop\Wordpress Checker.runtimeconfig.json
+C:\Users\Administrator\Desktop\Wordpress Checker.pdb
+C:\Users\Administrator\Desktop\RestSharp.dll

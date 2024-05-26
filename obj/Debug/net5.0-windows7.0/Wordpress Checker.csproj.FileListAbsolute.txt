@@ -1,0 +1,7 @@
+C:\Users\Administrator\Documents\Projects\Wordpress Checker\obj\Debug\net5.0-windows7.0\Wordpress Checker.csproj.AssemblyReference.cache
+C:\Users\Administrator\Documents\Projects\Wordpress Checker\obj\Debug\net5.0-windows7.0\WordPressLoginChecker.Form1.resources
+C:\Users\Administrator\Documents\Projects\Wordpress Checker\obj\Debug\net5.0-windows7.0\Wordpress Checker.csproj.GenerateResource.cache
+C:\Users\Administrator\Documents\Projects\Wordpress Checker\obj\Debug\net5.0-windows7.0\Wordpress Checker.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Administrator\Documents\Projects\Wordpress Checker\obj\Debug\net5.0-windows7.0\Wordpress Checker.AssemblyInfoInputs.cache
+C:\Users\Administrator\Documents\Projects\Wordpress Checker\obj\Debug\net5.0-windows7.0\Wordpress Checker.AssemblyInfo.cs
+C:\Users\Administrator\Documents\Projects\Wordpress Checker\obj\Debug\net5.0-windows7.0\Wordpress Checker.csproj.CoreCompileInputs.cache

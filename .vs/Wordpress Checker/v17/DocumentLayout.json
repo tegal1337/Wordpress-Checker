@@ -1,0 +1,107 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Administrator\\Documents\\Projects\\Wordpress Checker\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{91613EC4-EF79-44C8-83CE-9EE4C97B9784}|Wordpress Checker.csproj|c:\\users\\administrator\\documents\\projects\\wordpress checker\\wordpress checker.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{91613EC4-EF79-44C8-83CE-9EE4C97B9784}|Wordpress Checker.csproj|solutionrelative:wordpress checker.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{91613EC4-EF79-44C8-83CE-9EE4C97B9784}|Wordpress Checker.csproj|c:\\users\\administrator\\documents\\projects\\wordpress checker\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{91613EC4-EF79-44C8-83CE-9EE4C97B9784}|Wordpress Checker.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{91613EC4-EF79-44C8-83CE-9EE4C97B9784}|Wordpress Checker.csproj|c:\\users\\administrator\\documents\\projects\\wordpress checker\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{91613EC4-EF79-44C8-83CE-9EE4C97B9784}|Wordpress Checker.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{91613EC4-EF79-44C8-83CE-9EE4C97B9784}|Wordpress Checker.csproj|c:\\users\\administrator\\documents\\projects\\wordpress checker\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{91613EC4-EF79-44C8-83CE-9EE4C97B9784}|Wordpress Checker.csproj|solutionrelative:form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{91613EC4-EF79-44C8-83CE-9EE4C97B9784}|Wordpress Checker.csproj|c:\\users\\administrator\\documents\\projects\\wordpress checker\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{91613EC4-EF79-44C8-83CE-9EE4C97B9784}|Wordpress Checker.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Wordpress Checker",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Documents\\Projects\\Wordpress Checker\\Wordpress Checker.csproj",
+              "RelativeDocumentMoniker": "Wordpress Checker.csproj",
+              "ToolTip": "C:\\Users\\Administrator\\Documents\\Projects\\Wordpress Checker\\Wordpress Checker.csproj",
+              "RelativeToolTip": "Wordpress Checker.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-05-26T09:22:27.013Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Documents\\Projects\\Wordpress Checker\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Documents\\Projects\\Wordpress Checker\\Form1.cs [Design]",
+              "RelativeToolTip": "Form1.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-26T09:03:37.188Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Documents\\Projects\\Wordpress Checker\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Documents\\Projects\\Wordpress Checker\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-26T08:41:30.529Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Form1.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Documents\\Projects\\Wordpress Checker\\Form1.Designer.cs",
+              "RelativeDocumentMoniker": "Form1.Designer.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Documents\\Projects\\Wordpress Checker\\Form1.Designer.cs",
+              "RelativeToolTip": "Form1.Designer.cs",
+              "ViewState": "AQIAAHYAAAAAAAAAAAAAwKEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-26T08:41:18.606Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Documents\\Projects\\Wordpress Checker\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Documents\\Projects\\Wordpress Checker\\Form1.cs",
+              "RelativeToolTip": "Form1.cs",
+              "ViewState": "AQIAAIYAAAAAAAAAAAAAAJoAAABgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-26T08:41:13.892Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
