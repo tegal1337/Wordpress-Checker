@@ -78,11 +78,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Administrator\\Documents\\Projects\\Wordpress Checker\\Wordpress Checker.csproj",
+      "projectUniqueName": "C:\\Users\\Administrator\\Documents\\Projects\\Wordpress-Checker\\Wordpress Checker.csproj",
       "projectName": "Wordpress Checker",
-      "projectPath": "C:\\Users\\Administrator\\Documents\\Projects\\Wordpress Checker\\Wordpress Checker.csproj",
+      "projectPath": "C:\\Users\\Administrator\\Documents\\Projects\\Wordpress-Checker\\Wordpress Checker.csproj",
       "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Administrator\\Documents\\Projects\\Wordpress Checker\\obj\\",
+      "outputPath": "C:\\Users\\Administrator\\Documents\\Projects\\Wordpress-Checker\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

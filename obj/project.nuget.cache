@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Jo4Bi+teg/TPNOCIg2rM4j23vmNn7CIh153av36TIWNxzPkklMF1pMTrWJfn/8FWzbdpTCYRxCIYBft45c+98w==",
+  "dgSpecHash": "WTRhBkwSSpflin7/mP/KlXpVt/8HO5cwRfxzm4v7605Fz4rNVyqEn94vYBYvlA3qv/okZtypLXMzkxOmkOy5dg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Administrator\\Documents\\Projects\\Wordpress Checker\\Wordpress Checker.csproj",
+  "projectFilePath": "C:\\Users\\Administrator\\Documents\\Projects\\Wordpress-Checker\\Wordpress Checker.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Administrator\\.nuget\\packages\\restsharp\\111.0.0\\restsharp.111.0.0.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\system.xml.linq\\3.5.21022.801\\system.xml.linq.3.5.21022.801.nupkg.sha512"

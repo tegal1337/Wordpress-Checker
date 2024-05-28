@@ -14,6 +14,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Wordpress_Checker
-build_property.ProjectDir = C:\Users\Administrator\Documents\Projects\Wordpress Checker\
+build_property.ProjectDir = C:\Users\Administrator\Documents\Projects\Wordpress-Checker\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
