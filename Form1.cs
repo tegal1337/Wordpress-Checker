@@ -2,6 +2,9 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Net.Security;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
@@ -13,8 +16,20 @@ namespace WordPressLoginChecker
 {
     public partial class Form1 : Form
     {
-        private static readonly HttpClient client = new HttpClient();
+        private static readonly HttpClient client;
         private CancellationTokenSource cts;
+
+        static Form1()
+        {
+            // Create a handler that ignores SSL certificate errors
+            HttpClientHandler handler = new HttpClientHandler
+            {
+                ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => true
+            };
+
+            // Initialize HttpClient with the custom handler
+            client = new HttpClient(handler);
+        }
 
         public Form1()
         {
@@ -60,12 +75,18 @@ namespace WordPressLoginChecker
                         if (cts.Token.IsCancellationRequested)
                             break;
 
-                        var match = Regex.Match(line, @"(https?:\/\/[^\s/]+\/(wp-login\.php|wp-admin)):([^:]+):([^:]+)");
+                        var match = Regex.Match(line, @"(\b(https?:\/\/)?[^\s/]+\/(wp-login\.php|wp-admin)):([^:]+):([^:]+)");
                         if (match.Success)
                         {
                             string url = match.Groups[1].Value;
-                            string username = match.Groups[3].Value;
-                            string password = match.Groups[4].Value;
+                            string username = match.Groups[4].Value;
+                            string password = match.Groups[5].Value;
+
+                            // Ensure the URL has a proper scheme
+                            if (!url.StartsWith("http://") && !url.StartsWith("https://"))
+                            {
+                                url = "https://" + url;
+                            }
 
                             CheckLogin(url, username, password, cts.Token).Wait();
                         }
