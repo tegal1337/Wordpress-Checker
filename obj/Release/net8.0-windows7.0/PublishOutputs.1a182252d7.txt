@@ -1,0 +1,6 @@
+C:\Users\mumur\Documents\Wordpress Checker.exe
+C:\Users\mumur\Documents\Wordpress Checker.dll
+C:\Users\mumur\Documents\Wordpress Checker.deps.json
+C:\Users\mumur\Documents\Wordpress Checker.runtimeconfig.json
+C:\Users\mumur\Documents\Wordpress Checker.pdb
+C:\Users\mumur\Documents\RestSharp.dll

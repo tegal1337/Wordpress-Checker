@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Wordpress Checker")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c4de6320bbb349835af99ebf5f57d0b5fdead619")]
 [assembly: System.Reflection.AssemblyProductAttribute("Wordpress Checker")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Wordpress Checker")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

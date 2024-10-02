@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Administrator\\Documents\\Projects\\Wordpress-Checker\\Wordpress Checker.csproj": {}
+    "C:\\Users\\mumur\\Documents\\PROJECT\\tegal1337\\Wordpress-Checker\\Wordpress Checker.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Administrator\\Documents\\Projects\\Wordpress-Checker\\Wordpress Checker.csproj": {
+    "C:\\Users\\mumur\\Documents\\PROJECT\\tegal1337\\Wordpress-Checker\\Wordpress Checker.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Administrator\\Documents\\Projects\\Wordpress-Checker\\Wordpress Checker.csproj",
+        "projectUniqueName": "C:\\Users\\mumur\\Documents\\PROJECT\\tegal1337\\Wordpress-Checker\\Wordpress Checker.csproj",
         "projectName": "Wordpress Checker",
-        "projectPath": "C:\\Users\\Administrator\\Documents\\Projects\\Wordpress-Checker\\Wordpress Checker.csproj",
-        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Administrator\\Documents\\Projects\\Wordpress-Checker\\obj\\",
+        "projectPath": "C:\\Users\\mumur\\Documents\\PROJECT\\tegal1337\\Wordpress-Checker\\Wordpress Checker.csproj",
+        "packagesPath": "C:\\Users\\mumur\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mumur\\Documents\\PROJECT\\tegal1337\\Wordpress-Checker\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\mumur\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -77,7 +78,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

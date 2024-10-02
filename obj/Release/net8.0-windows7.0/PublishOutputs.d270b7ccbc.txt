@@ -1,0 +1,6 @@
+C:\Users\mumur\Documents\VB.NET BUILD\WPCHECK\Wordpress Checker.exe
+C:\Users\mumur\Documents\VB.NET BUILD\WPCHECK\Wordpress Checker.dll
+C:\Users\mumur\Documents\VB.NET BUILD\WPCHECK\Wordpress Checker.deps.json
+C:\Users\mumur\Documents\VB.NET BUILD\WPCHECK\Wordpress Checker.runtimeconfig.json
+C:\Users\mumur\Documents\VB.NET BUILD\WPCHECK\Wordpress Checker.pdb
+C:\Users\mumur\Documents\VB.NET BUILD\WPCHECK\RestSharp.dll
